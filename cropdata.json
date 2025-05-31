@@ -1,0 +1,62 @@
+[
+  "carrot": {
+    "base": 18
+  },
+  "strawberry": {
+    "base": 14
+  },
+  "blueberry": {
+    "base": 18
+  },
+  "orange tulip": {
+    "base": 767
+  },
+  "tomato": {
+    "base": 27
+  },
+  "corn": {
+    "base": 36
+  },
+  "daffodil": {
+    "base": 903
+  },
+  "watermelon": {
+    "base": 2708
+  },
+  "pumpkin": {
+    "base": 3700
+  },
+  "apple": {
+    "base": 248
+  },
+  "bamboo": {
+    "base": 3610
+  },
+  "coconut": {
+    "base": 361
+  },
+  "cactus": {
+    "base": 3068
+  },
+  "dragon fruit": {
+    "base": 4287
+  },
+  "mango": {
+    "base": 5866
+  },
+  "grape": {
+    "base": 7085
+  },
+  "mushroom": {
+    "base": 136278
+  },
+  "pepper": {
+    "base": 7220
+  },
+  "cacao": {
+    "base": 9928
+  },
+  "beanstalk": {
+    "base": 18050
+  }
+]

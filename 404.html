@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Not Found</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      --button-text-color: white;
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --input-bg: #f9f9f9;
+      --input-border: #ccc;
+      --menu-bg: #ffffff;
+      --hover-bg: #f0f0f0;
+      --accent-color: #007acc;
+      --radius: 6px;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark {
+      --button-text-color: #121212;
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --input-bg: #1f1f1f;
+      --input-border: #444;
+      --menu-bg: #2a2a2a;
+      --hover-bg: #333;
+      --accent-color: #4dabf7;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    a.button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: var(--accent-color);
+      color: var(--button-text-color);
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background-color 0.2s ease;
+    }
+
+    a.button:hover {
+      filter: brightness(0.9);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-color);
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>404 - Page Not Found</h1>
+  <p>Oops! The page you're looking for doesn't exist.</p>
+  <a class="button" href="https://pizzb.github.io/Grow-A-Garden-Profit-Calculator/">Back to Home</a>
+
+  <footer>
+    Created by <strong>pizzb</strong> • 
+    <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator" target="_blank">GitHub</a> • 
+    <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+  </footer>
+</body>
+
+</html>

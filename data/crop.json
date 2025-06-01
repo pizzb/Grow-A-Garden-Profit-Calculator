@@ -16,8 +16,8 @@
   },
   "orange tulip": {
     "min": 767,
-    "base": 0,
-    "usual": 0
+    "base": 312448,
+    "usual": 0.05
   },
   "tomato": {
     "min": 27,

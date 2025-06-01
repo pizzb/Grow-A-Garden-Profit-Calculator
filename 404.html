@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,6 +42,7 @@
       align-items: center;
       height: 100vh;
       text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     h1 {
@@ -86,7 +86,6 @@
     }
   </style>
 </head>
-
 <body>
   <h1>404 - Page Not Found</h1>
   <p>Oops! The page you're looking for doesn't exist.</p>
@@ -97,6 +96,13 @@
     <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator" target="_blank">GitHub</a> • 
     <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
   </footer>
-</body>
 
+  <script>
+    // Respect stored dark/light preference
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+    }
+  </script>
+</body>
 </html>

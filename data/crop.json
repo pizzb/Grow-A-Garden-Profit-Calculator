@@ -2,121 +2,145 @@
   "carrot": {
     "min": 18,
     "base": 260,
-    "usual": 0.3
+    "usual": 0.3,
+    "complete": true
   },
   "strawberry": {
     "min": 14,
     "base": 170,
-    "usual": 0.35
+    "usual": 0.35,
+    "complete": true
   },
   "blueberry": {
     "min": 18,
     "base": 500,
-    "usual": 0.2
+    "usual": 0.2,
+    "complete": true
   },
   "orange tulip": {
     "min": 767,
     "base": 312448,
-    "usual": 0.05
+    "usual": 0.05,
+    "complete": true
   },
   "tomato": {
     "min": 27,
     "base": 120,
-    "usual": 0.4
+    "usual": 0.4,
+    "complete": true
   },
   "corn": {
     "min": 36,
     "base": 10,
-    "usual": 1.8
+    "usual": 1.8,
+    "complete": true
   },
   "daffodil": {
     "min": 903,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "watermelon": {
     "min": 2708,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "pumpkin": {
     "min": 3700,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "apple": {
     "min": 248,
     "base": 30,
-    "usual": 3
+    "usual": 3,
+    "complete": true
   },
   "bamboo": {
     "min": 3610,
     "base": 250,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "coconut": {
     "min": 361,
     "base": 1.36,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "cactus": {
     "min": 3068,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "dragon fruit": {
     "min": 4287,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "mango": {
     "min": 5866,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "grape": {
     "min": 7085,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "mushroom": {
     "min": 136278,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "pepper": {
     "min": 7220,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "cacao": {
     "min": 9928,
     "base": 0,
-    "usual": 0
+    "usual": 0,
+    "complete": false
   },
   "beanstalk": {
     "min": 18050,
     "base": 200,
-    "usual": 12
+    "usual": 12,
+    "complete": true
   },
   "blood banana": {
     "min": 5415,
     "base": 2668,
-    "usual": 1.9
+    "usual": 1.9,
+    "complete": true
   },
   "moon melon": {
     "min": 16245,
     "base": 281,
-    "usual": 10
+    "usual": 10,
+    "complete": true
   },
   "celestiberry": {
     "min": 7220,
     "base": 2496,
-    "usual": 2.5
+    "usual": 2.5,
+    "complete": true
   },
   "nectarine": {
     "min": 35000,
     "base": 4447,
-    "usual": 3.5
+    "usual": 3.5,
+    "complete": true
   }
 }

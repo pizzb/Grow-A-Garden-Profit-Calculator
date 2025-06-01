@@ -1,62 +1,100 @@
 {
   "carrot": {
-    "base": 18
+    "min": 18,
+    "base": 260,
+    "usual": 0
   },
   "strawberry": {
-    "base": 14
+    "min": 14,
+    "base": 170,
+    "usual": 0.35
   },
   "blueberry": {
-    "base": 18
+    "min": 18,
+    "base": 500,
+    "usual": 0.2
   },
   "orange tulip": {
-    "base": 767
+    "min": 767,
+    "base": 0,
+    "usual": 0
   },
   "tomato": {
-    "base": 27
+    "min": 27,
+    "base": 120,
+    "usual": 0
   },
   "corn": {
-    "base": 36
+    "min": 36,
+    "base": 0,
+    "usual": 0
   },
   "daffodil": {
-    "base": 903
+    "min": 903,
+    "base": 0,
+    "usual": 0
   },
   "watermelon": {
-    "base": 2708
+    "min": 2708,
+    "base": 0,
+    "usual": 0
   },
   "pumpkin": {
-    "base": 3700
+    "min": 3700,
+    "base": 0,
+    "usual": 0
   },
   "apple": {
-    "base": 248
+    "min": 248,
+    "base": 30,
+    "usual": 0
   },
   "bamboo": {
-    "base": 3610
+    "min": 3610,
+    "base": 250,
+    "usual": 0
   },
   "coconut": {
-    "base": 361
+    "min": 361,
+    "base": 1.36,
+    "usual": 0
   },
   "cactus": {
-    "base": 3068
+    "min": 3068,
+    "base": 0,
+    "usual": 0
   },
   "dragon fruit": {
-    "base": 4287
+    "min": 4287,
+    "base": 0,
+    "usual": 0
   },
   "mango": {
-    "base": 5866
+    "min": 5866,
+    "base": 0,
+    "usual": 0
   },
   "grape": {
-    "base": 7085
+    "min": 7085,
+    "base": 0,
+    "usual": 0
   },
   "mushroom": {
-    "base": 136278
+    "min": 136278,
+    "base": 0,
+    "usual": 0
   },
   "pepper": {
-    "base": 7220
+    "min": 7220,
+    "base": 0,
+    "usual": 0
   },
   "cacao": {
-    "base": 9928
+    "min": 9928,
+    "base": 0,
+    "usual": 0
   },
   "beanstalk": {
-    "base": 18050
+    "min": 18050
   }
 }

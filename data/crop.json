@@ -99,6 +99,11 @@
     "base": 200,
     "usual": 12
   },
+  "blood banana": {
+    "min": 5415,
+    "base": 2668,
+    "usual": 1.9
+  },
   "moon melon": {
     "min": 16245,
     "base": 281,

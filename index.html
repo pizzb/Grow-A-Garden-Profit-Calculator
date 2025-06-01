@@ -262,6 +262,23 @@
       color: var(--text-color);
       border-top: 1px solid var(--input-border);
     }
+
+    .wiki-notice {
+      background-color: #fff8dc;
+      border: 1px solid #e6c200;
+      color: #5a4a00;
+      padding: 1rem;
+      margin: 1rem auto;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      max-width: 960px;
+      text-align: center;
+    }
+
+    .wiki-notice a {
+      color: #b58900;
+      text-decoration: underline;
+    }
   </style>
 
 </head>
@@ -270,9 +287,15 @@
 
   <div class="container">
     <div class="header">
-      <h1>Crop Profit Calculator</h1>
+      <h1>Grow a Garden Crop Profit Calculator</h1>
       <button id="themeToggle">Switch to Dark Mode</button>
     </div>
+
+    <div class="wiki-notice">
+      ⚠️ This tool is a work in progress. Data accuracy may vary.
+      <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator/issues" target="_blank">Report an issue</a>.
+    </div>
+
 
     <section>
       <h2>Select a crop:</h2>
@@ -354,7 +377,6 @@
       </p>
     </div>
   </footer>
-
 
   <script>
     let cropData = {};

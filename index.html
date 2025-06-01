@@ -1,80 +1,798 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Dropdown Menu with Checkboxes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crop, Mutation & Size Dropdowns</title>
   <style>
+    :root {
+      --button-text-color: white;
+      --bg-color: #ffffff;
+      --text-color: #1a1a1a;
+      --input-bg: #f9f9f9;
+      --input-border: #ccc;
+      --menu-bg: #ffffff;
+      --hover-bg: #f0f0f0;
+      --accent-color: #007acc;
+      --radius: 6px;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark {
+      --button-text-color: #121212;
+      /* dark text for light button in dark mode */
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --input-bg: #1f1f1f;
+      --input-border: #444;
+      --menu-bg: #2a2a2a;
+      --hover-bg: #333;
+      --accent-color: #4dabf7;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 600;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+      background-color: var(--accent-color);
+      color: var(--button-text-color);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover,
+    button:focus {
+      filter: brightness(0.9);
+      outline: none;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
     .dropdown {
       position: relative;
-      display: inline-block;
-      margin: 10px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 1.5rem;
     }
 
-    .dropdown-btn {
-      background-color: #3498db;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
+    .dropdown-toggle {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      background: var(--input-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
-      border-radius: 4px;
+      transition: border-color 0.2s ease;
     }
 
-    .dropdown-content {
-      display: none;
+    .dropdown-toggle:hover,
+    .dropdown-toggle:focus {
+      border-color: var(--accent-color);
+    }
+
+    .dropdown-toggle img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      margin-right: 8px;
+    }
+
+    .dropdown-menu {
       position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      padding: 10px;
-      z-index: 1;
-      border-radius: 4px;
+      top: 110%;
+      left: 0;
+      width: 100%;
+      max-height: 240px;
+      overflow-y: auto;
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      background: var(--menu-bg);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .dropdown-menu.show {
+      display: flex;
     }
 
-    .dropdown-content label {
-      display: block;
-      margin-bottom: 5px;
+    .search-input {
+      padding: 0.6rem 0.75rem;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      background: var(--input-bg);
+      color: var(--text-color);
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    label {
+      padding: 0.6rem 0.75rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.2s ease;
+    }
+
+    label:hover {
+      background-color: var(--hover-bg);
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 6px;
+    }
+
+    label img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    #kilogramsInput {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius);
+      box-sizing: border-box;
+    }
+
+    #estimatedProfit {
+      font-weight: bold;
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .dropdown {
+        max-width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header button {
+        align-self: stretch;
+      }
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      background: var(--input-bg);
+    }
+
+    .search-wrapper .search-input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.95rem;
+      background: transparent;
+      color: var(--text-color);
+    }
+
+    .clear-button {
+      background: transparent;
+      border: none;
+      color: var(--text-color);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0 0.75rem;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+
+    .clear-button:hover,
+    .clear-button:focus {
+      color: var(--accent-color);
+      outline: none;
+    }
+
+    .footer-bar {
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-size: 0.85rem;
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid var(--input-border);
+      margin-top: 2rem;
+    }
+
+    .footer-bar a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .footer-bar a:hover {
+      text-decoration: underline;
+    }
+
+    body.dark .footer-bar {
+      background-color: var(--menu-bg);
+      color: var(--text-color);
+      border-top: 1px solid var(--input-border);
     }
   </style>
+
 </head>
+
 <body>
 
-  <div class="dropdown">
-    <button class="dropdown-btn">Dropdown A</button>
-    <div class="dropdown-content">
-      <label><input type="checkbox"> Checkbox 1</label>
-      <label><input type="checkbox"> Checkbox 2</label>
-      <label><input type="checkbox"> Checkbox 3</label>
+  <div class="container">
+    <div class="header">
+      <h1>Crop Profit Calculator</h1>
+      <button id="themeToggle">Switch to Dark Mode</button>
     </div>
+
+    <section>
+      <h2>Select a crop:</h2>
+      <div class="dropdown" id="dropdownCrop">
+        <div class="dropdown-toggle" id="dropdownToggleCrop">
+          <img id="selectedIconCrop" src="" alt="" style="display:none;" />
+          <span id="selectedTextCrop">Loading...</span>
+          <span style="margin-left:auto;">▼</span>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenuCrop">
+          <input type="text" class="search-input" id="searchInputCrop" placeholder="Search..." />
+          <div id="optionsContainerCrop"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Select mutations: (<span id="mutationsNote">1x</span>)</h2>
+      <div class="dropdown" id="dropdownMutation">
+        <div class="dropdown-toggle" id="dropdownToggleMutation">
+          <div id="selectedMutationContainer" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span>Select mutations</span>
+          </div>
+          <span style="margin-left:auto;">▼</span>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenuMutation">
+          <div class="search-wrapper">
+            <input type="text" class="search-input" id="searchInputMutation" placeholder="Search..." />
+            <button type="button" class="clear-button" id="clearSearchMutation" aria-label="Clear search">✕</button>
+          </div>
+          <div id="optionsContainerMutation"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Select size estimation:</h2>
+      <div class="dropdown" id="dropdownSize">
+        <div class="dropdown-toggle" id="dropdownToggleSize">
+          <div id="selectedSizeContainer" style="display:flex; gap:10px; flex-wrap:wrap;">
+            <span>Select sizes</span>
+          </div>
+          <span style="margin-left:auto;">▼</span>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenuSize">
+          <div class="search-wrapper">
+            <input type="text" class="search-input" id="searchInputSize" placeholder="Search..." />
+            <button type="button" class="clear-button" id="clearSearchSize" aria-label="Clear search">✕</button>
+          </div>
+          <div id="optionsContainerSize"></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 2rem;">
+      <h2>Kilograms:</h2>
+      <input type="number" id="kilogramsInput" value="1" min="0" />
+    </section>
+
+    <section>
+      <h2>Estimated Profit:</h2>
+      <div id="estimatedProfit">0¢</div>
+    </section>
   </div>
 
-  <div class="dropdown">
-    <button class="dropdown-btn">Dropdown B</button>
-    <div class="dropdown-content">
-      <label><input type="checkbox"> Checkbox 1</label>
-      <label><input type="checkbox"> Checkbox 2</label>
-      <label><input type="checkbox"> Checkbox 3</label>
+  <footer class="footer-bar">
+    <div class="footer-content">
+      <p>
+        Created by <strong>pizzb</strong>. View the project on
+        <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator" target="_blank"
+          rel="noopener noreferrer">GitHub</a>.
+      </p>
+      <p>
+        This tool is fan-made and not affiliated with Roblox or the original game developers.
+      </p>
+      <p>
+        Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT
+          License</a>.
+      </p>
     </div>
-  </div>
+  </footer>
 
-  <div class="dropdown">
-    <button class="dropdown-btn">Dropdown C</button>
-    <div class="dropdown-content">
-      <label><input type="checkbox"> Checkbox 1</label>
-      <label><input type="checkbox"> Checkbox 2</label>
-      <label><input type="checkbox"> Checkbox 3</label>
-    </div>
-  </div>
 
+  <script>
+    let cropData = {};
+    let mutationData = {};
+    let sizeData = {};
+
+    let selectedCropBase = 0;
+    let selectedMutationObjects = [];
+    let selectedSizeOptions = new Set();
+    let selectedMutationOptions = new Set();
+    let kilograms = 1;
+
+    // --- Crop Dropdown ---
+    const cropJsonUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/data/crop.json';
+    const cropImageBaseUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/image/crop/';
+
+    const dropdownToggleCrop = document.getElementById('dropdownToggleCrop');
+    const dropdownMenuCrop = document.getElementById('dropdownMenuCrop');
+    const optionsContainerCrop = document.getElementById('optionsContainerCrop');
+    const searchInputCrop = document.getElementById('searchInputCrop');
+    const selectedIconCrop = document.getElementById('selectedIconCrop');
+    const selectedTextCrop = document.getElementById('selectedTextCrop');
+
+    let cropOptions = [];
+    let selectedCropOption = null;
+
+    fetch(cropJsonUrl)
+      .then(res => res.json())
+      .then(data => {
+        cropData = data;
+        cropOptions = Object.keys(data);
+        selectedCropOption = cropOptions[0];
+        updateSelectedCropDisplay(selectedCropOption);
+        renderCropOptions(cropOptions);
+        let sizeMultiplier = 1;
+        const selectedSizeObjects = Array.from(selectedSizeOptions).map(name => sizeData[name]).filter(obj => obj);
+        selectedSizeObjects.forEach(obj => {
+          sizeMultiplier *= obj.value;
+        });
+
+        kilograms = cropData[selectedCropOption].usual;
+        kilograms *= sizeMultiplier
+        kilograms *= 100
+        kilograms = Math.round(kilograms)
+        kilograms /= 100
+        document.getElementById('kilogramsInput').value = kilograms;
+
+        updateSelectedDataVariables();
+      });
+
+    function renderCropOptions(opts) {
+      optionsContainerCrop.innerHTML = '';
+      opts.forEach((opt, i) => {
+        const id = `crop-radio-${i}`;
+        const checked = opt === selectedCropOption ? 'checked' : '';
+        const label = document.createElement('label');
+        const imgUrl = cropImageBaseUrl + encodeURIComponent(opt) + '.png';
+        label.innerHTML = `
+          <input type="radio" name="dropdownOptionsCrop" id="${id}" value="${opt}" ${checked}>
+          <img src="${imgUrl}" alt="${opt}" onerror="this.style.visibility='hidden'">
+          ${opt}
+        `;
+        optionsContainerCrop.appendChild(label);
+      });
+    }
+
+    function updateSelectedCropDisplay(opt) {
+      selectedTextCrop.textContent = opt;
+      const imgUrl = cropImageBaseUrl + encodeURIComponent(opt) + '.png';
+      selectedIconCrop.src = imgUrl;
+      selectedIconCrop.style.display = 'inline-block';
+    }
+
+    dropdownToggleCrop.addEventListener('click', () => {
+      dropdownMenuCrop.classList.toggle('show');
+      searchInputCrop.value = '';
+      renderCropOptions(cropOptions);
+      searchInputCrop.focus();
+    });
+
+    searchInputCrop.addEventListener('input', () => {
+      const term = searchInputCrop.value.toLowerCase();
+      const filtered = cropOptions.filter(opt => opt.toLowerCase().includes(term));
+      renderCropOptions(filtered);
+    });
+
+    optionsContainerCrop.addEventListener('change', e => {
+      if (e.target.name === 'dropdownOptionsCrop') {
+        selectedCropOption = e.target.value;
+        updateSelectedCropDisplay(selectedCropOption);
+        dropdownMenuCrop.classList.remove('show');
+
+        let sizeMultiplier = 1;
+        const selectedSizeObjects = Array.from(selectedSizeOptions).map(name => sizeData[name]).filter(obj => obj);
+        selectedSizeObjects.forEach(obj => {
+          sizeMultiplier *= obj.value;
+        });
+
+        kilograms = cropData[selectedCropOption].usual;
+        kilograms *= sizeMultiplier
+        kilograms *= 100
+        kilograms = Math.round(kilograms)
+        kilograms /= 100
+        document.getElementById('kilogramsInput').value = kilograms;
+
+        updateSelectedSizeDisplay();
+
+        updateSelectedDataVariables();
+      }
+    });
+
+    // --- Mutation Dropdown ---
+    const mutationJsonUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/data/mutation.json';
+    const mutationImageBaseUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/image/mutation/';
+
+    const dropdownToggleMutation = document.getElementById('dropdownToggleMutation');
+    const dropdownMenuMutation = document.getElementById('dropdownMenuMutation');
+    const optionsContainerMutation = document.getElementById('optionsContainerMutation');
+    const searchInputMutation = document.getElementById('searchInputMutation');
+    const selectedMutationContainer = document.getElementById('selectedMutationContainer');
+
+    fetch(mutationJsonUrl)
+      .then(res => res.json())
+      .then(data => {
+        mutationData = data;
+        renderMutationOptions(Object.keys(data));
+        updateSelectedDataVariables();
+      });
+
+    function renderMutationOptions(opts) {
+      optionsContainerMutation.innerHTML = '';
+      opts.forEach((opt, i) => {
+        const id = `mutation-checkbox-${i}`;
+        const checked = selectedMutationOptions.has(opt) ? 'checked' : '';
+        const label = document.createElement('label');
+        const imgUrl = mutationImageBaseUrl + encodeURIComponent(opt) + '.png';
+        label.innerHTML = `
+          <input type="checkbox" name="dropdownOptionsMutation" id="${id}" value="${opt}" ${checked}>
+          <img src="${imgUrl}" alt="${opt}" onerror="this.style.visibility='hidden'">
+          ${opt}
+        `;
+        optionsContainerMutation.appendChild(label);
+      });
+      updateSelectedMutationDisplay();
+    }
+
+    function updateSelectedMutationDisplay() {
+      selectedMutationContainer.innerHTML = '';
+      if (selectedMutationOptions.size === 0) {
+        selectedMutationContainer.innerHTML = '<span>(no mutations)</span>';
+        return;
+      }
+      selectedMutationOptions.forEach(opt => {
+        const imgUrl = mutationImageBaseUrl + encodeURIComponent(opt) + '.png';
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '5px';
+        const img = document.createElement('img');
+        img.src = imgUrl;
+        img.alt = opt + ' icon';
+        img.style.width = '20px';
+        img.style.height = '20px';
+        img.onerror = () => { img.style.visibility = 'hidden'; };
+        const label = document.createElement('span');
+        label.textContent = opt;
+        wrapper.appendChild(img);
+        wrapper.appendChild(label);
+        selectedMutationContainer.appendChild(wrapper);
+      });
+    }
+
+    dropdownToggleMutation.addEventListener('click', () => {
+      dropdownMenuMutation.classList.toggle('show');
+      searchInputMutation.value = '';
+      renderMutationOptions(Object.keys(mutationData));
+      searchInputMutation.focus();
+    });
+
+    searchInputMutation.addEventListener('input', () => {
+      const term = searchInputMutation.value.toLowerCase();
+      const filtered = Object.keys(mutationData).filter(opt => opt.toLowerCase().includes(term));
+      renderMutationOptions(filtered);
+    });
+
+    optionsContainerMutation.addEventListener('change', e => {
+      if (e.target.name === 'dropdownOptionsMutation') {
+        const val = e.target.value;
+        if (e.target.checked) {
+          selectedMutationOptions.add(val);
+        } else {
+          selectedMutationOptions.delete(val);
+        }
+        updateSelectedMutationDisplay();
+        updateSelectedDataVariables();
+      }
+    });
+
+    // --- Size Estimation Dropdown ---
+    const sizeJsonUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/data/size.json';
+    const sizeImageBaseUrl = 'https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/main/image/size/';
+
+    const dropdownToggleSize = document.getElementById('dropdownToggleSize');
+    const dropdownMenuSize = document.getElementById('dropdownMenuSize');
+    const optionsContainerSize = document.getElementById('optionsContainerSize');
+    const searchInputSize = document.getElementById('searchInputSize');
+    const selectedSizeContainer = document.getElementById('selectedSizeContainer');
+
+    fetch(sizeJsonUrl)
+      .then(res => res.json())
+      .then(data => {
+        sizeData = data;
+        renderSizeOptions(Object.keys(data));
+        updateSelectedDataVariables();
+      });
+
+    function renderSizeOptions(opts) {
+      optionsContainerSize.innerHTML = '';
+      opts.forEach((opt, i) => {
+        const id = `size-checkbox-${i}`;
+        const checked = selectedSizeOptions.has(opt) ? 'checked' : '';
+        const label = document.createElement('label');
+        const imgUrl = sizeImageBaseUrl + encodeURIComponent(opt) + '.png';
+        label.innerHTML = `
+          <input type="checkbox" name="dropdownOptionsSize" id="${id}" value="${opt}" ${checked}>
+          <img src="${imgUrl}" alt="${opt}" onerror="this.style.visibility='hidden'">
+          ${opt}
+        `;
+        optionsContainerSize.appendChild(label);
+      });
+      updateSelectedSizeDisplay();
+    }
+
+    function updateSelectedSizeDisplay() {
+      selectedSizeContainer.innerHTML = '';
+      if (selectedSizeOptions.size === 0) {
+        selectedSizeContainer.innerHTML = '<span>(default)</span>';
+        return;
+      }
+      selectedSizeOptions.forEach(opt => {
+        const imgUrl = sizeImageBaseUrl + encodeURIComponent(opt) + '.png';
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '5px';
+        const img = document.createElement('img');
+        img.src = imgUrl;
+        img.alt = opt + ' icon';
+        img.style.width = '20px';
+        img.style.height = '20px';
+        img.onerror = () => { img.style.visibility = 'hidden'; };
+        const label = document.createElement('span');
+        label.textContent = opt;
+        wrapper.appendChild(img);
+        wrapper.appendChild(label);
+        selectedSizeContainer.appendChild(wrapper);
+      });
+    }
+
+    dropdownToggleSize.addEventListener('click', () => {
+      dropdownMenuSize.classList.toggle('show');
+      searchInputSize.value = '';
+      renderSizeOptions(Object.keys(sizeData));
+      searchInputSize.focus();
+
+      let sizeMultiplier = 1;
+      const selectedSizeObjects = Array.from(selectedSizeOptions).map(name => sizeData[name]).filter(obj => obj);
+      selectedSizeObjects.forEach(obj => {
+        sizeMultiplier *= obj.value;
+      });
+
+      kilograms = cropData[selectedCropOption].usual;
+      kilograms *= sizeMultiplier
+      kilograms *= 100
+      kilograms = Math.round(kilograms)
+      kilograms /= 100
+      document.getElementById('kilogramsInput').value = kilograms;
+
+      updateSelectedDataVariables();
+    });
+
+    searchInputSize.addEventListener('input', () => {
+      const term = searchInputSize.value.toLowerCase();
+      const filtered = Object.keys(sizeData).filter(opt => opt.toLowerCase().includes(term));
+      renderSizeOptions(filtered);
+    });
+
+    optionsContainerSize.addEventListener('change', e => {
+      if (e.target.name === 'dropdownOptionsSize') {
+        const val = e.target.value;
+        if (e.target.checked) {
+          selectedSizeOptions.add(val);
+        } else {
+          selectedSizeOptions.delete(val);
+        }
+        updateSelectedSizeDisplay();
+
+        let sizeMultiplier = 1;
+        const selectedSizeObjects = Array.from(selectedSizeOptions).map(name => sizeData[name]).filter(obj => obj);
+        selectedSizeObjects.forEach(obj => {
+          sizeMultiplier *= obj.value;
+        });
+
+        kilograms = cropData[selectedCropOption].usual;
+        kilograms *= sizeMultiplier
+        kilograms *= 100
+        kilograms = Math.round(kilograms)
+        kilograms /= 100
+        document.getElementById('kilogramsInput').value = kilograms;
+
+        updateSelectedDataVariables();
+      }
+    });
+
+    // --- Shared ---
+    document.addEventListener('click', e => {
+      if (!document.getElementById('dropdownCrop').contains(e.target)) dropdownMenuCrop.classList.remove('show');
+      if (!document.getElementById('dropdownMutation').contains(e.target)) dropdownMenuMutation.classList.remove('show');
+      if (!document.getElementById('dropdownSize').contains(e.target)) dropdownMenuSize.classList.remove('show');
+    });
+
+    document.getElementById('kilogramsInput').addEventListener('input', () => {
+      kilograms = parseFloat(document.getElementById('kilogramsInput').value) || 0;
+      // Clear selected sizes:
+      selectedSizeOptions.clear();
+
+      // Uncheck all checkboxes in the size dropdown
+      const sizeCheckboxes = optionsContainerSize.querySelectorAll('input[type="checkbox"][name="dropdownOptionsSize"]');
+      sizeCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
+      // Update the display to reflect no selected sizes
+      selectedSizeContainer.innerHTML = '<span>(custom)</span>';
+      updateSelectedDataVariables();
+    });
+
+    function updateSelectedDataVariables() {
+      if (selectedCropOption && cropData[selectedCropOption]) {
+        selectedCropBase = cropData[selectedCropOption].base || 0;
+      } else {
+        selectedCropBase = 0;
+      }
+
+      selectedMutationObjects = Array.from(selectedMutationOptions).map(name => mutationData[name]).filter(obj => obj);
+
+      let totalProfit = selectedCropBase;
+      totalProfit = Math.floor(totalProfit * kilograms * kilograms);
+
+      let growthMutation = 1;
+      let environmentalMutation = 1;
+
+      selectedMutationObjects.forEach(obj => {
+        if (obj.base === true) {
+          growthMutation *= obj.value;
+        } else {
+          environmentalMutation += obj.value;
+        }
+      });
+
+      document.getElementById('mutationsNote').textContent = `${growthMutation * environmentalMutation}x`;
+
+      totalProfit *= growthMutation;
+      totalProfit *= environmentalMutation;
+      totalProfit = Math.floor(totalProfit);
+
+      document.getElementById('estimatedProfit').textContent = totalProfit.toLocaleString() + "¢";
+    }
+
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('themeToggle');
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.textContent = 'Switch to Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        themeToggle.textContent = 'Switch to Dark Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+
+    // Clear buttons for Mutation and Size search inputs
+    document.getElementById('clearSearchMutation').addEventListener('click', () => {
+      searchInputMutation.value = '';
+      renderMutationOptions(Object.keys(mutationData));
+      searchInputMutation.focus();
+      // Clear selected sizes:
+      selectedMutationOptions.clear();
+
+      // Uncheck all checkboxes in the size dropdown
+      const mutationCheckboxes = optionsContainerMutation.querySelectorAll('input[type="checkbox"][name="dropdownOptionsMutation"]');
+      mutationCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+
+      renderMutationOptions(Object.keys(mutationData));
+      updateSelectedDataVariables()
+    });
+    document.getElementById('clearSearchSize').addEventListener('click', () => {
+      searchInputSize.value = '';
+      renderSizeOptions(Object.keys(sizeData));
+      searchInputSize.focus();
+      // Clear selected sizes:
+      selectedSizeOptions.clear();
+
+      // Uncheck all checkboxes in the size dropdown
+      const sizeCheckboxes = optionsContainerSize.querySelectorAll('input[type="checkbox"][name="dropdownOptionsSize"]');
+      sizeCheckboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      let sizeMultiplier = 1;
+      const selectedSizeObjects = Array.from(selectedSizeOptions).map(name => sizeData[name]).filter(obj => obj);
+      selectedSizeObjects.forEach(obj => {
+        sizeMultiplier *= obj.value;
+      });
+
+      kilograms = cropData[selectedCropOption].usual;
+      kilograms *= sizeMultiplier
+      kilograms *= 100
+      kilograms = Math.round(kilograms)
+      kilograms /= 100
+      document.getElementById('kilogramsInput').value = kilograms;
+
+      updateSelectedDataVariables();
+      renderSizeOptions(Object.keys(sizeData));
+      updateSelectedDataVariables()
+    });
+  </script>
 </body>
+
 </html>

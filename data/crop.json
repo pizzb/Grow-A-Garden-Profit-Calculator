@@ -27,7 +27,7 @@
   "corn": {
     "min": 36,
     "base": 0,
-    "usual": 0
+    "usual": 1.8
   },
   "daffodil": {
     "min": 903,
@@ -47,7 +47,7 @@
   "apple": {
     "min": 248,
     "base": 30,
-    "usual": 0
+    "usual": 3
   },
   "bamboo": {
     "min": 3610,
@@ -95,6 +95,8 @@
     "usual": 0
   },
   "beanstalk": {
-    "min": 18050
+    "min": 18050,
+    "base": 0,
+    "usual": 0
   }
 }

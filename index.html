@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crop Profit Calculator</title>
-  <meta name="description" content="Estimate crop profits using mutations, sizes, and crop types from Grow A Garden. Fan-made calculator by pizzb.">
+  <meta name="description"
+    content="Estimate crop profits using mutations, sizes, and crop types from Grow A Garden. Fan-made calculator by pizzb.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="pizzb">
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/refs/heads/main/favicon.ico">
+  <link rel="icon" type="image/x-icon"
+    href="https://raw.githubusercontent.com/pizzb/Grow-A-Garden-Profit-Calculator/refs/heads/main/favicon.ico">
   <style>
     :root {
       --button-text-color: white;
@@ -283,6 +285,10 @@
       color: #b58900;
       text-decoration: underline;
     }
+
+    .incomplete {
+      opacity: 0.2;
+    }
   </style>
 
 </head>
@@ -299,6 +305,8 @@
       ⚠️ This tool is a work in progress. Data accuracy may vary.
       <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator/issues" target="_blank">Report an issue</a>.
     </div>
+
+    <div class="wiki-notice" id="incompleteNotice" style="display: none;"></div>
 
 
     <section>
@@ -438,14 +446,19 @@
         const checked = opt === selectedCropOption ? 'checked' : '';
         const label = document.createElement('label');
         const imgUrl = cropImageBaseUrl + encodeURIComponent(opt) + '.png';
+
+        const crop = cropData[opt];
+        const isComplete = crop && crop.complete !== false; // default to true if missing
+
         label.innerHTML = `
-          <input type="radio" name="dropdownOptionsCrop" id="${id}" value="${opt}" ${checked}>
-          <img src="${imgUrl}" alt="${opt}" onerror="this.style.visibility='hidden'">
-          ${opt}
-        `;
+      <input type="radio" name="dropdownOptionsCrop" id="${id}" value="${opt}" ${checked}>
+      <img src="${imgUrl}" alt="${opt}" onerror="this.style.visibility='hidden'">
+      <span class="${isComplete ? '' : 'incomplete'}">${opt}</span>
+    `;
         optionsContainerCrop.appendChild(label);
       });
     }
+
 
     function updateSelectedCropDisplay(opt) {
       selectedTextCrop.textContent = opt;
@@ -485,6 +498,8 @@
         kilograms = Math.round(kilograms)
         kilograms /= 100
         document.getElementById('kilogramsInput').value = kilograms;
+
+        updateIncompleteCropNotice();
 
         updateSelectedSizeDisplay();
 
@@ -746,7 +761,7 @@
       totalProfit *= growthMutation;
       totalProfit *= environmentalMutation;
       totalProfit = Math.floor(totalProfit);
-      totalProfit = Math.max(totalProfit,cropData[selectedCropOption].min)
+      totalProfit = Math.max(totalProfit, cropData[selectedCropOption].min)
 
       document.getElementById('estimatedProfit').textContent = totalProfit.toLocaleString() + "¢";
     }
@@ -819,6 +834,18 @@
       renderSizeOptions(Object.keys(sizeData));
       updateSelectedDataVariables()
     });
+    function updateIncompleteCropNotice() {
+      const notice = document.getElementById('incompleteNotice');
+      const crop = cropData[selectedCropOption];
+      if (crop && crop.complete === false) {
+        notice.style.display = 'block';
+        notice.innerHTML = `⚠️ Data for <strong>${selectedCropOption}</strong> is incomplete.
+      <a href="https://github.com/pizzb/Grow-A-Garden-Profit-Calculator/issues" target="_blank">Report an issue</a>.`;
+      } else {
+        notice.style.display = 'none';
+      }
+    }
+
   </script>
 </body>
 

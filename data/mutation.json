@@ -1,38 +1,38 @@
 {
   "wet": {
-    "value": 2,
+    "value": 1,
     "base": false
   },
   "chilled": {
-    "value": 2,
+    "value": 1,
     "base": false
   },
   "chocolate": {
-    "value": 2,
+    "value": 1,
     "base": false
   },
   "moonlit": {
-    "value": 2,
+    "value": 1,
     "base": false
   },
   "pollinated": {
-    "value": 3,
+    "value": 2,
     "base": false
   },
   "bloodlit": {
-    "value": 4,
+    "value": 3,
     "base": false
   },
   "plasma": {
-    "value": 5,
+    "value": 4,
     "base": false
   },
   "honey glazed": {
-    "value": 5,
+    "value": 4,
     "base": false
   },
   "frozen": {
-    "value": 10,
+    "value": 9,
     "base": false
   },
   "golden": {
@@ -40,11 +40,11 @@
     "base": true
   },
   "zombified": {
-    "value": 25,
+    "value": 24,
     "base": false
   },
   "twisted": {
-    "value": 30,
+    "value": 29,
     "base": false
   },
   "rainbow": {
@@ -52,19 +52,19 @@
     "base": true
   },
   "shocked": {
-    "value": 100,
+    "value": 99,
     "base": false
   },
   "celestial": {
-    "value": 120,
+    "value": 119,
     "base": false
   },
   "disco": {
-    "value": 125,
+    "value": 124,
     "base": false
   },
   "voidtouched": {
-    "value": 197,
+    "value": 134,
     "base": false
   }
 }

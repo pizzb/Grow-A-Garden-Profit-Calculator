@@ -22,7 +22,7 @@
   "tomato": {
     "min": 27,
     "base": 120,
-    "usual": 0
+    "usual": 0.4
   },
   "corn": {
     "min": 36,

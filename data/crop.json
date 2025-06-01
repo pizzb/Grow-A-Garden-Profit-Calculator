@@ -119,6 +119,162 @@
     "usual": 12,
     "complete": true
   },
+  "pear": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "raspberry": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "pineapple": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "peach": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "papaya": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "banana": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "passionfruit": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "soul fruit": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "cursed fruit": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "chocolate carrot": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "red lollipop": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "candy sunflower": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "easter egg": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "candy blossom": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "cranberry": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "durian": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "eggplant": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "venus fly trap": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "lotus": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "nightshade": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "glowshroom": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "mint": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "moonflower": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "starfruit": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "moonglow": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "moon blossom": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
   "blood banana": {
     "min": 5415,
     "base": 2668,
@@ -137,10 +293,58 @@
     "usual": 2.5,
     "complete": true
   },
+  "moon mango": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "rose": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "foxglove": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "lilac": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "pink lily": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "purple dahlia": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
   "nectarine": {
     "min": 35000,
     "base": 4447,
     "usual": 3.5,
     "complete": true
+  },
+  "hive fruit": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
+  },
+  "sunflower": {
+    "min": 0,
+    "base": 0,
+    "usual": 0,
+    "complete": false
   }
 }

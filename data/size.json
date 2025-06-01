@@ -3,15 +3,15 @@
     "value": 5
   },
   "basic sprinkler": {
-    "value": 1.5
+    "value": 1.2
   },
   "advanced sprinkler": {
-    "value": 1.5
+    "value": 1.2
   },
   "godly sprinkler": {
-    "value": 1.5
+    "value": 1.2
   },
   "master sprinkler": {
-    "value": 5
+    "value": 2
   }
 }

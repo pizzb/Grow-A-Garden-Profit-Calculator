@@ -743,6 +743,7 @@
       totalProfit *= growthMutation;
       totalProfit *= environmentalMutation;
       totalProfit = Math.floor(totalProfit);
+      totalProfit = Math.max(totalProfit,cropData[selectedCropOption].min)
 
       document.getElementById('estimatedProfit').textContent = totalProfit.toLocaleString() + "¢";
     }

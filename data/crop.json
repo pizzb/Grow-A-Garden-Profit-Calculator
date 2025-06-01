@@ -98,5 +98,15 @@
     "min": 18050,
     "base": 0,
     "usual": 0
+  },
+  "moon melon": {
+    "min": 16245,
+    "base": 281,
+    "usual": 10
+  },
+  "celestiberry": {
+    "min": 7220,
+    "base": 2496,
+    "usual": 2.5
   }
 }

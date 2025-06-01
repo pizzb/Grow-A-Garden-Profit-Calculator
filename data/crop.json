@@ -2,7 +2,7 @@
   "carrot": {
     "min": 18,
     "base": 260,
-    "usual": 0
+    "usual": 0.3
   },
   "strawberry": {
     "min": 14,

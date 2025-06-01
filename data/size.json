@@ -1,0 +1,17 @@
+{
+  "giant": {
+    "value": 5
+  },
+  "basic sprinkler": {
+    "value": 1.5
+  },
+  "advanced sprinkler": {
+    "value": 1.5
+  },
+  "godly sprinkler": {
+    "value": 1.5
+  },
+  "master sprinkler": {
+    "value": 5
+  }
+}

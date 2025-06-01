@@ -26,7 +26,7 @@
   },
   "corn": {
     "min": 36,
-    "base": 0,
+    "base": 10,
     "usual": 1.8
   },
   "daffodil": {

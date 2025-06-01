@@ -15,11 +15,19 @@
     "value": 2,
     "base": false
   },
+  "pollinated": {
+    "value": 3,
+    "base": false
+  },
   "bloodlit": {
     "value": 4,
     "base": false
   },
   "plasma": {
+    "value": 5,
+    "base": false
+  },
+  "honey glazed": {
     "value": 5,
     "base": false
   },

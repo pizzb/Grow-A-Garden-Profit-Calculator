@@ -294,9 +294,9 @@
     "complete": true
   },
   "moon mango": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
+    "min": 22563,
+    "base": 222,
+    "usual": 15,
     "complete": false
   },
   "rose": {
@@ -338,7 +338,7 @@
   "hive fruit": {
     "min": 6318,
     "base": 780,
-    "usual": 10,
+    "usual": 8,
     "complete": true
   },
   "sunflower": {

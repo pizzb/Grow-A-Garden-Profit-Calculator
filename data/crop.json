@@ -97,9 +97,9 @@
   },
   "mushroom": {
     "min": 136278,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 241,
+    "usual": 30,
+    "complete": true
   },
   "pepper": {
     "min": 7220,

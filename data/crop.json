@@ -318,10 +318,10 @@
     "complete": true
   },
   "pink lily": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 58663,
+    "base": 1806,
+    "usual": 5,
+    "complete": true
   },
   "purple dahlia": {
     "min": 67688,

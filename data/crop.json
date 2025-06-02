@@ -37,9 +37,9 @@
   },
   "daffodil": {
     "min": 903,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 24464,
+    "usual": 0.25,
+    "complete": true
   },
   "watermelon": {
     "min": 2708,
@@ -73,9 +73,9 @@
   },
   "cactus": {
     "min": 3068,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 80,
+    "usual": 7,
+    "complete": true
   },
   "dragon fruit": {
     "min": 4287,

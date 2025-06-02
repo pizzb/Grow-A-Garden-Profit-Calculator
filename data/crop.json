@@ -109,9 +109,9 @@
   },
   "cacao": {
     "min": 9928,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 171,
+    "usual": 10,
+    "complete": true
   },
   "beanstalk": {
     "min": 18050,

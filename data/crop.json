@@ -62,14 +62,14 @@
   "bamboo": {
     "min": 3610,
     "base": 250,
-    "usual": 0,
-    "complete": false
+    "usual": 4,
+    "complete": true
   },
   "coconut": {
     "min": 361,
     "base": 1.36,
-    "usual": 0,
-    "complete": false
+    "usual": 15,
+    "complete": true
   },
   "cactus": {
     "min": 3068,

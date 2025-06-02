@@ -336,10 +336,10 @@
     "complete": true
   },
   "hive fruit": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 6318,
+    "base": 780,
+    "usual": 10,
+    "complete": true
   },
   "sunflower": {
     "min": 0,

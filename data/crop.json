@@ -198,10 +198,10 @@
     "complete": false
   },
   "candy blossom": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 92567,
+    "base": 11117,
+    "usual": 3,
+    "complete": true
   },
   "cranberry": {
     "min": 0,

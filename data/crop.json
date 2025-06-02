@@ -324,10 +324,10 @@
     "complete": false
   },
   "purple dahlia": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 67688,
+    "base": 222,
+    "usual": 13,
+    "complete": true
   },
   "nectarine": {
     "min": 35000,

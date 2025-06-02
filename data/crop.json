@@ -43,15 +43,15 @@
   },
   "watermelon": {
     "min": 2708,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 61,
+    "usual": 7,
+    "complete": true
   },
   "pumpkin": {
     "min": 3700,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 53,
+    "usual": 7,
+    "complete": true
   },
   "apple": {
     "min": 248,

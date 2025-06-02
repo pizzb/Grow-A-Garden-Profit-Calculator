@@ -79,9 +79,9 @@
   },
   "dragon fruit": {
     "min": 4287,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 33,
+    "usual": 10,
+    "complete": true
   },
   "mango": {
     "min": 5866,

@@ -300,22 +300,22 @@
     "complete": true
   },
   "rose": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 4513,
+    "base": 5000,
+    "usual": 2.5,
+    "complete": true
   },
   "foxglove": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 18050,
+    "base": 5000,
+    "usual": 2.5,
+    "complete": true
   },
   "lilac": {
-    "min": 0,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "min": 31588,
+    "base": 3900,
+    "usual": 2.5,
+    "complete": true
   },
   "pink lily": {
     "min": 0,

@@ -297,7 +297,7 @@
     "min": 22563,
     "base": 222,
     "usual": 15,
-    "complete": false
+    "complete": true
   },
   "rose": {
     "min": 0,

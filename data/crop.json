@@ -103,9 +103,9 @@
   },
   "pepper": {
     "min": 7220,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 320,
+    "usual": 5,
+    "complete": true
   },
   "cacao": {
     "min": 9928,

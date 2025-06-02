@@ -85,9 +85,9 @@
   },
   "mango": {
     "min": 5866,
-    "base": 0,
-    "usual": 0,
-    "complete": false
+    "base": 29,
+    "usual": 15,
+    "complete": true
   },
   "grape": {
     "min": 7085,
